@@ -1,2 +1,4 @@
-package me.txmc.gradlepluginbase.common;public class Common {
+package me.txmc.gradlepluginbase.common;
+
+public class Common {
 }

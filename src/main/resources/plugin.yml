@@ -1,5 +1,0 @@
-name: GradlePluginBase
-version: '${project.version}'
-main: me.txmc.gradlepluginbase.GradlePluginBase
-authors: [ 254n_m ]
-description: A base plugin with gradle as the build system
