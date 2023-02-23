@@ -1,4 +1,4 @@
-name: GradlePluginBase
+name: IceAnarchyCore
 version: 1.0-SNAPSHOT
-main: me.txmc.gradlepluginbase.Main
-authors: [ 254n_m ]
+main: org.iceanarchy.core.IceAnarchy
+authors: [ SevJ6 ]

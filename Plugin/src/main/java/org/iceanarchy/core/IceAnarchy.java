@@ -1,4 +1,4 @@
-package me.txmc.gradlepluginbase;
+package org.iceanarchy.core;
 
 import lombok.Getter;
 import me.txmc.protocolapi.reflection.ClassProcessor;
@@ -8,6 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_12_R1.CraftServer;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.iceanarchy.core.common.Common;
+import org.iceanarchy.core.test.TestListener;
 
 import java.io.File;
 import java.io.InputStream;
@@ -17,11 +19,12 @@ import java.net.URLClassLoader;
 import java.nio.file.Files;
 
 @Getter
-public final class Main extends JavaPlugin {
+public final class IceAnarchy extends JavaPlugin {
 
     @Override
     public void onEnable() {
         loadMixins();
+        Common.PACKET_EVENT_BUS.register(new TestListener());
     }
 
     private void loadMixins() {

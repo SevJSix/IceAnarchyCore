@@ -3,7 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
-group = "me.txmc"
+group = "org.iceanarchy"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.txmc:rtmixin:1.5.1-BETA")
+    implementation("me.txmc:rtmixin:1.5.6-BETA")
     implementation(project(":Common"))
     compileOnly("com.destroystokyo.paper:paper-jar:1.12.2-R0.1-SNAPSHOT")
     compileOnly("org.projectlombok:lombok:1.18.24")

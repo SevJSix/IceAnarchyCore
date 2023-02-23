@@ -2,7 +2,7 @@ plugins {
     java
 }
 
-group = "me.txmc"
+group = "org.iceanarchy"
 version = "1.0-SNAPSHOT"
 
 repositories {
