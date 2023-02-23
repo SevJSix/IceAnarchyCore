@@ -1,4 +1,4 @@
-rootProject.name = "GradlePluginBase"
+rootProject.name = "IceAnarchyCore"
 
 include(":Common", ":Mixins", ":Plugin")
 

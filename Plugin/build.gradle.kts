@@ -1,4 +1,4 @@
-group = "me.txmc"
+group = "org.iceanarchy"
 version = "1.0-SNAPSHOT"
 description = ""
 
@@ -20,6 +20,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.24")
 }
+
 tasks.processResources {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     val resources = File("src/main/resources")

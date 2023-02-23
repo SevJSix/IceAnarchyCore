@@ -1,8 +1,10 @@
-package me.txmc.gradlepluginbase.mixin;
+package org.iceanarchy.core.mixin;
 
 import me.txmc.rtmixin.RtMixin;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.iceanarchy.core.mixin.mixins.MixinNetworkManager;
+import org.iceanarchy.core.common.packet.PacketEventBus;
 
 import java.lang.instrument.Instrumentation;
 
@@ -14,8 +16,7 @@ public class MixinMain {
         plugin.getLogger().info(translate("&3Successfully attached agent and got instrumentation instance&r&a %s&r", inst.getClass().getName()));
         long start = System.currentTimeMillis();
         //Register your mixins here
-
-//        RtMixin.processMixins(MixinNetworkManager.class);
+        RtMixin.processMixins(MixinNetworkManager.class);
         //---
         plugin.getLogger().info(translate("&3Preformed all mixins in&r&a %dms&r", (System.currentTimeMillis() - start)));
     }
