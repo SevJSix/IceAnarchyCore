@@ -5,7 +5,9 @@ The project was started by SevJ6 (me) after a long break from running anarchy se
 
 # Features
 See total player play times on the server
+
 Customizable tablist with custom placeholders
+
 Custom commands
 
 # Commands
