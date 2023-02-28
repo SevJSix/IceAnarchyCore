@@ -2,6 +2,8 @@ group = "org.iceanarchy"
 version = "1.0-SNAPSHOT"
 description = ""
 
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
 plugins {
     java
     id("com.github.johnrengelman.shadow") version "7.1.2"
