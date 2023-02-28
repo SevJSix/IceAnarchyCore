@@ -12,4 +12,5 @@ The project was started by SevJ6 (me) after a long break from running anarchy se
 
 # Commands
 /reloadconfig - reload the plugin's main config.yml file
+
 /playtime - view your's and other's total play time on the server
