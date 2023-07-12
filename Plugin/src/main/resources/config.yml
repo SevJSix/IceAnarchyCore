@@ -4,5 +4,18 @@ TabHeader:
   - ""
 TabFooter:
   - ""
-  - "Welcome to the niggers!"
+  - "  %tps% &btps - %players% players - %ping% ping - %uptime% uptime  "
   - ""
+  - "&7to report any bugs, issues, or complaints, contact SevJ6#2521"
+  - ""
+
+WorldstatsMessage:
+  - "&bTotal unique joins: %totalPlayers%"
+  - "&bServer age: %years% years, %months% months, %days% days old"
+  - "&bWorld size: %fileSize% GB"
+
+# All world directories to include in world stats
+Worlds:
+  - "./world/region"
+  - "./world_nether/DIM-1/region"
+  - "./world_the_end/DIM1/region"

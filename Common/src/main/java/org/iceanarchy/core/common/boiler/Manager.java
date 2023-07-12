@@ -8,4 +8,5 @@ public abstract class Manager {
 
     public abstract void init(JavaPlugin plugin);
 
+    public abstract void onShutdown(JavaPlugin plugin);
 }
