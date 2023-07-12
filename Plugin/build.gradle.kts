@@ -16,10 +16,6 @@ repositories {
 }
 
 dependencies {
-    implementation("net.dv8tion:JDA:5.0.0-alpha.4") {
-        exclude("opus-java")
-    }
-    implementation("com.theokanning.openai-gpt3-java:service:0.11.1")
     implementation("me.txmc:protocolapi:1.2-SNAPSHOT")
     implementation(project(":Common"))
     compileOnly("com.destroystokyo.paper:paper-jar:1.12.2-R0.1-SNAPSHOT")
