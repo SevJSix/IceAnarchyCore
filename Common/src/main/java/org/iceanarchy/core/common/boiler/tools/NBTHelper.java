@@ -48,12 +48,23 @@ public class NBTHelper {
         writeM.invoke(compound, output);
     }
 
-    public static NBTTagCompound loadNBTFromFile(File file) throws Throwable {
+    @SneakyThrows
+    public static NBTTagCompound loadNBTFromFile(File file) {
         FileInputStream fis = new FileInputStream(file);
         DataInputStream in = new DataInputStream(fis);
         NBTTagCompound compound = readNBT(in);
         in.close();
         fis.close();
         return compound;
+    }
+
+    @SneakyThrows
+    public static void writeAndFlush(NBTTagCompound compound, File file) {
+        FileOutputStream fos = new FileOutputStream(file);
+        DataOutputStream out = new DataOutputStream(fos);
+        NBTHelper.writeNBT(compound, out);
+        out.flush();
+        out.close();
+        fos.close();
     }
 }
