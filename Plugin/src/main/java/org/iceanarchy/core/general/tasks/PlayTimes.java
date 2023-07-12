@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.iceanarchy.core.common.boiler.interfaces.ScheduledTask;
 import org.iceanarchy.core.common.boiler.tools.NBTHelper;
@@ -28,15 +29,22 @@ public class PlayTimes implements Listener {
         playerTimeMap.forEach((player, time) -> playerTimeMap.replace(player, time + 1));
     }
 
-    @EventHandler(priority = EventPriority.NORMAL)
+    @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         playerTimeMap.putIfAbsent(event.getPlayer(), 0);
     }
 
-    @SneakyThrows
-    @EventHandler(priority = EventPriority.NORMAL)
+    @EventHandler
     public void onQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
+        savePlayerPlayTime(event.getPlayer());
+    }
+
+    public void onKick(PlayerKickEvent event) {
+        savePlayerPlayTime(event.getPlayer());
+    }
+
+    @SneakyThrows
+    public void savePlayerPlayTime(Player player) {
         File playerFile = new File(FileManager.getPlaytimes(), player.getUniqueId().toString().concat(".nbt"));
         NBTTagCompound compound = new NBTTagCompound();
         if (!playerFile.exists()) {
