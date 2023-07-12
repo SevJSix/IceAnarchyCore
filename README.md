@@ -60,8 +60,8 @@ First Join Listener | send the player with your server's disord link the first t
 ```
 
 ## Api Calls
-###IceAnarchyCore uses a libary called RtMixin to allow modification to the minecraft server source code at runtime.
-### - You can check out RtMixin here: https://github.com/254nm/RtMixin
+### IceAnarchyCore uses a libary called RtMixin to allow modification to the minecraft server source code at runtime.
+### You can check out RtMixin here [https://github.com/254nm/RtMixin]
 
 ## How to compile
 
