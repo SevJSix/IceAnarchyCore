@@ -1,8 +1,16 @@
 package org.iceanarchy.core.common;
 
+import io.netty.channel.ChannelPipeline;
+import net.minecraft.server.v1_12_R1.ChatComponentText;
+import net.minecraft.server.v1_12_R1.PacketPlayOutChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.craftbukkit.v1_12_R1.CraftServer;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.NumberConversions;
 import org.iceanarchy.core.common.boiler.interfaces.ScheduledTask;
 
 import java.lang.reflect.Method;
@@ -32,12 +40,16 @@ public class Common {
         }
     }
 
+    public static double getTPS() {
+        return ((CraftServer) Bukkit.getServer()).getHandle().getServer().recentTps[0];
+    }
+
     public static void registerTasks(JavaPlugin plugin, Class<?>... classes) {
         for (Class<?> clazz : classes) {
             for (Method method : clazz.getDeclaredMethods()) {
                 if (!method.isAnnotationPresent(ScheduledTask.class)) continue;
                 ScheduledTask task = method.getAnnotation(ScheduledTask.class);
-                service.scheduleWithFixedDelay(() -> invokeMethod(method, plugin), 0L, task.delay(), TimeUnit.SECONDS);
+                service.scheduleWithFixedDelay(() -> invokeMethod(method, plugin), 0L, task.delay(), TimeUnit.MILLISECONDS);
             }
         }
     }
@@ -62,8 +74,23 @@ public class Common {
         }
     }
 
+    public static void sendChatPacket(Player player, String data) {
+        ((CraftPlayer) player).getHandle().playerConnection.networkManager.channel.writeAndFlush(new PacketPlayOutChat(new ChatComponentText(translateAltColorCodes(data))));
+    }
+
     public static String translateAltColorCodes(String input) {
         return ChatColor.translateAlternateColorCodes('&', input);
+    }
+
+    public static int getBlocksAwayFrom(org.bukkit.entity.Entity entity, org.bukkit.entity.Entity target) {
+        if (entity == null || target == null) return -1;
+        Location entityLocation = entity.getLocation();
+        Location targetLocation = target.getLocation();
+        return getBlocksAwayFrom(entityLocation, targetLocation);
+    }
+
+    public static int getBlocksAwayFrom(Location location1, Location location2) {
+        return (int) Math.sqrt((NumberConversions.square(location1.getBlockX() - location2.getBlockX()) + NumberConversions.square(location1.getBlockZ() - location2.getBlockZ())));
     }
 }
 

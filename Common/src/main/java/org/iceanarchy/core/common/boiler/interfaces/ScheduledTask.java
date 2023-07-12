@@ -5,5 +5,5 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ScheduledTask {
-    long delay() default 1L;
+    long delay() default 1000L;
 }
