@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Tablist {
 
-    private static final long startTime = System.currentTimeMillis();
+    public static final long startTime = System.currentTimeMillis();
 
     @ScheduledTask
     public static void update() {
